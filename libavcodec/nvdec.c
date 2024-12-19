@@ -399,6 +399,11 @@ int ff_nvdec_decode_init(AVCodecContext *avctx)
     params.ChromaFormat        = cuvid_chroma_format;
     params.ulNumDecodeSurfaces = frames_ctx->initial_pool_size;
     params.ulNumOutputSurfaces = unsafe_output ? frames_ctx->initial_pool_size : 1;
+    params.ulIntraDecodeOnly   = avctx->flags2;
+
+    if (params.ulIntraDecodeOnly){
+	    av_log(avctx, AV_LOG_VERBOSE, "Intra only option set for decoder!");
+    }
 
     ret = nvdec_decoder_create(&ctx->decoder, frames_ctx->device_ref, &params, avctx);
     if (ret < 0) {
