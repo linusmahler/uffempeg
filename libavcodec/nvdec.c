@@ -403,6 +403,8 @@ int ff_nvdec_decode_init(AVCodecContext *avctx)
 
     if (params.ulIntraDecodeOnly){
 	    av_log(avctx, AV_LOG_VERBOSE, "Intra only option set for decoder!");
+    } else {
+        av_log(avctx, AV_LOG_VERBOSE, "Intra only option NOT set for decoder!");
     }
 
     ret = nvdec_decoder_create(&ctx->decoder, frames_ctx->device_ref, &params, avctx);
