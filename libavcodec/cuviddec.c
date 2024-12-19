@@ -763,6 +763,7 @@ static int cuvid_test_capabilities(AVCodecContext *avctx,
     res10 = CHECK_CU(ctx->cvdl->cuvidGetDecoderCaps(&ctx->caps10));
     res12 = CHECK_CU(ctx->cvdl->cuvidGetDecoderCaps(&ctx->caps12));
 
+    av_log(avctx, AV_LOG_VERBOSE, "TESTING LOG LINE ADDED!\n");
     av_log(avctx, AV_LOG_VERBOSE, "CUVID capabilities for %s:\n", avctx->codec->name);
     av_log(avctx, AV_LOG_VERBOSE, "8 bit: supported: %d, min_width: %d, max_width: %d, min_height: %d, max_height: %d\n",
            ctx->caps8.bIsSupported, ctx->caps8.nMinWidth, ctx->caps8.nMaxWidth, ctx->caps8.nMinHeight, ctx->caps8.nMaxHeight);
