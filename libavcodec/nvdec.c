@@ -326,6 +326,9 @@ int ff_nvdec_decode_init(AVCodecContext *avctx)
 {
     NVDECContext *ctx = avctx->internal->hwaccel_priv_data;
 
+    av_log(avctx, AV_LOG_ERROR, "ERROR TEST 1\n");
+    av_log(avctx, AV_LOG_VERBOSE, "ff_nvdec_decode_init called\n");
+    
     NVDECDecoder        *decoder;
     AVBufferRef         *real_hw_frames_ref;
     NVDECFramePool      *pool;
